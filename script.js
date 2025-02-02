@@ -7,6 +7,8 @@ const taskList = document.getElementById("task-list");
 const searchTaskInput = document.getElementById("search-task");
 const clockDisplay = document.getElementById("clock");
 
+const uploadBackgroundInput = document.getElementById("upload-background");
+
 const loadTasks = () => {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   taskList.innerHTML = "";
@@ -20,7 +22,6 @@ const saveTasks = (tasks) => {
 const addTaskToDOM = (task, index) => {
   const li = document.createElement("li");
   li.className = `list-group-item d-flex justify-content-between align-items-center ${task.done ? "bg-success text-white" : ""}`;
-
   li.style.color = task.color || "#000";
 
   li.innerHTML = `
@@ -133,5 +134,19 @@ document.getElementById("font-family").addEventListener("change", changeFont);
 
 setInterval(updateClock, 1000);
 updateClock();
+
+uploadBackgroundInput.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+      document.body.style.backgroundImage = `url(${event.target.result})`;
+    };
+
+    reader.readAsDataURL(file);
+  }
+});
 
 document.addEventListener("DOMContentLoaded", loadTasks);
