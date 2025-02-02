@@ -9,10 +9,30 @@
 </head>
 <body>
   <div class="container my-5">
-    <h2 id="clock" class="text-center"></h2>
-
     <h1 class="text-center">To Do List</h1>
 
+    <!-- Jam Realtime -->
+    <h2 id="clock" class="text-center"></h2>
+
+    <!-- Dropdown untuk ganti warna teks dan font -->
+    <div class="text-center mb-4">
+      <label for="text-color" class="form-label">Select Text Color:</label>
+      <select id="text-color" class="form-select d-inline-block w-auto me-2">
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+      </select>
+
+      <label for="font-family" class="form-label">Select Font:</label>
+      <select id="font-family" class="form-select d-inline-block w-auto">
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="Times New Roman, serif">Times New Roman</option>
+      </select>
+    </div>
+
+    <!-- Form untuk menambahkan task -->
     <form id="task-form" class="mb-4">
       <div class="mb-3">
         <label for="task-title" class="form-label">Task Title</label>
@@ -29,12 +49,22 @@
         <input type="date" id="task-deadline" class="form-control">
       </div>
 
-      <button type="submit" class="btn btn-primary">Add Task</button> <!-- Tombol Add Task -->
+      <div class="mb-3">
+        <label for="task-color" class="form-label">Text Color</label>
+        <input type="color" id="task-color" class="form-control" value="#000000">
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Add Task</button>
     </form>
 
+    <!-- Input Pencarian -->
+    <div class="mb-3">
+      <input type="text" id="search-task" class="form-control" placeholder="Search task...">
+    </div>
+
+    <!-- Menampilkan daftar task -->
     <div id="task-container">
       <h3>Active Tasks</h3>
-      <input type="text" id="search-task" class="form-control mb-3" placeholder="Search task...">
       <ul id="task-list" class="list-group"></ul>
     </div>
   </div>
