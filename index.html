@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container my-5">
+    <h2 id="clock" class="text-center"></h2>
+
+    <h1 class="text-center">To Do List</h1>
+
+    <form id="task-form" class="mb-4">
+      <div class="mb-3">
+        <label for="task-title" class="form-label">Task Title</label>
+        <input type="text" id="task-title" class="form-control" placeholder="Enter task title" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="task-desc" class="form-label">Task Description</label>
+        <textarea id="task-desc" class="form-control" rows="3" placeholder="Enter task description" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="task-deadline" class="form-label">Deadline</label>
+        <input type="date" id="task-deadline" class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add Task</button> <!-- Tombol Add Task -->
+    </form>
+
+    <div id="task-container">
+      <h3>Active Tasks</h3>
+      <input type="text" id="search-task" class="form-control mb-3" placeholder="Search task...">
+      <ul id="task-list" class="list-group"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
